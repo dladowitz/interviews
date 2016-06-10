@@ -12,7 +12,7 @@ def number_to_words(number)
     last_three = number % 1000
 
     under_1000_in_words = under_1000_to_words(last_three)
-    words += " " + under_1000_in_words + thousands_place[thousands_counter]
+    words =  under_1000_in_words + " " + thousands_place[thousands_counter] + " " + words
     thousands_counter += 1
 
     # remove last numbers and continue
@@ -52,6 +52,7 @@ def under_1000_to_words(number)
 end
 
 
+puts "Under 1000 conversion"
 number = 10;  puts "#{number} is: #{under_1000_to_words(number)}"
 number = 13; puts "#{number} is: #{under_1000_to_words(number)}"
 number = 63; puts "#{number} is: #{under_1000_to_words(number)}"
@@ -62,3 +63,12 @@ number = 999; puts "#{number} is: #{under_1000_to_words(number)}"
 number = 809; puts "#{number} is: #{under_1000_to_words(number)}"
 number = 109; puts "#{number} is: #{under_1000_to_words(number)}"
 number = 111; puts "#{number} is: #{under_1000_to_words(number)}"
+puts "______________________________________________"
+puts "Full Number to Words"
+number = 915;  puts "#{number} is: #{number_to_words(number)}"
+number = 1915;  puts "#{number} is: #{number_to_words(number)}"
+number = 29915;  puts "#{number} is: #{number_to_words(number)}"
+number = 209915;  puts "#{number} is: #{number_to_words(number)}"
+number = 2009915;  puts "#{number} is: #{number_to_words(number)}"
+number = 5149915;  puts "#{number} is: #{number_to_words(number)}"
+number = 5119915;  puts "#{number} is: #{number_to_words(number)}"
