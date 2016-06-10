@@ -1,6 +1,28 @@
 # Create a method that turns integers into english words
 # 100,450,012 to "one hundred million four hundred fifty thousand twelve"
 
+def separate_comma(number)
+  a = number.to_s.split('')
+  b = a.size/3.0
+  if a.size < 4
+    number.to_s
+  elsif a.size%3 == 0
+    n = -4
+    (b.to_i-1).times do |i|
+      a.insert(n, ',')
+      n -= 4
+    end
+    a.join("")
+  else
+      n = -4
+    b.to_i.times do |i|
+      a.insert(n, ',')
+      n -= 4
+    end
+   a.join("")
+  end
+end
+
 def number_to_words(number)
   thousands_place = ["", "thousand", "million", "billion", "trillion"]
 
@@ -65,10 +87,11 @@ number = 109; puts "#{number} is: #{under_1000_to_words(number)}"
 number = 111; puts "#{number} is: #{under_1000_to_words(number)}"
 puts "______________________________________________"
 puts "Full Number to Words"
-number = 915;  puts "#{number} is: #{number_to_words(number)}"
-number = 1915;  puts "#{number} is: #{number_to_words(number)}"
-number = 29915;  puts "#{number} is: #{number_to_words(number)}"
-number = 209915;  puts "#{number} is: #{number_to_words(number)}"
-number = 2009915;  puts "#{number} is: #{number_to_words(number)}"
-number = 5149915;  puts "#{number} is: #{number_to_words(number)}"
-number = 5119915;  puts "#{number} is: #{number_to_words(number)}"
+number = 915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
+number = 1915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
+number = 29915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
+number = 209915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
+number = 2009915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
+number = 5149915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
+number = 5119915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
+number = 895119915;  puts "#{separate_comma(number)} is: #{number_to_words(number)}"
