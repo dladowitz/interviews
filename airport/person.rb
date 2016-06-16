@@ -4,11 +4,16 @@ class Person
   def initialize(name)
     @name = name
     @on_plane = false
+    @at_airport = false
   end
 
   def board_plane(airplane)
     @on_plane = airplane
     airplane.board_person(self)
+  end
+
+  def arrive_a_airport(airport)
+    @at_airport = airport
   end
 end
 
@@ -22,10 +27,6 @@ class Guest
   def check_in
     @checked_in = true
   end
-
-  def drive_to_airport(airport)
-
-  end
 end
 
 class Employee < Person
@@ -37,5 +38,9 @@ class Employee < Person
     @passed_background_checks = false
     @home_city = home_city
     @role = nil
+  end
+
+  def pass_security_clearance
+    @passed_background_checks = true
   end
 end
