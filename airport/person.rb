@@ -12,12 +12,16 @@ class Person
     airplane.board_person(self)
   end
 
+  def deboard_plane(airplane)
+    @on_plane = false
+  end
+
   def arrive_a_airport(airport)
     @at_airport = airport
   end
 end
 
-class Guest
+class Guest < Person
   def initialize(name)
     @name = name
     @checked_in = false
